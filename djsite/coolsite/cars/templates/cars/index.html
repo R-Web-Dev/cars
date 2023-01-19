@@ -1,0 +1,27 @@
+{% extends 'cars/base.html' %} {% block content %}
+<h1>{{title}}</h1>
+<ul>
+  {% for p in posts %}
+  <div class="card mb-3" style="width: 50rem">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <img src="" class="img-fluid rounded-start" alt="..." />
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h4 class="card-title">{{ p.title }}</h4>
+          <p class="card-text">{{ p.content|truncatewords:70 }}</p>
+          <p
+            class="link-read-post d-grid gap-2 d-md-flex justify-content-md-end"
+          >
+            <a class="btn btn-outline-dark" href="{{ p.get_absolute_url }}"
+              >Read post</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</ul>
+{% endblock %}
